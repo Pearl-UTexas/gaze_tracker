@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<launch>
+	<arg name="use_yolo" default="true"/>
+	<arg name="gui" default="true"/>
+	<arg name="image_topic_name" default="/kinect/qhd/image_color_rect"/>
+	<arg name="launch_feed_recorder" default="true"/>
+	<arg name="data_directory" default="../tmp"/>
+
+	<param name="image_topic_name" value="$(arg image_topic_name)"/>
+	<param name="object_detector_data_dir" value="$(arg data_directory)"/>
+
+	<node name="object_detector_bridge" pkg="object_detector" type="gaze_predict_wrapper.py" output="screen" cwd="node">
+		<param name="use_yolo" value="$(arg use_yolo)"/>
+	</node>
+
+	<group if="$(arg launch_feed_recorder)">
+		<node name="feed_recorder_query" pkg="object_detector" type="feed_recorder.py" output="screen" cwd="node"></node>
+	</group>
+	
+	<node name="gaze_study_query" pkg="object_detector" type="gaze_predict_service.py" output="screen" cwd="node"></node>
+	<node name="face_detector" pkg="object_detector" type="face_detector.py" output="screen" cwd="node"></node>
+
+	<group if="$(arg use_yolo)">
+
+		<include file="$(find rail_object_detector)/launch/villa.launch">
+			<arg name="publish_detections_topic" value="true"/>
+			<arg name="image_sub_topic_name" value="$(arg image_topic_name)"/>
+		</include>
+
+	</group>
+
+	<group if="$(arg gui)">
+		<include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch"/>
+		<node name="web_video_server" pkg="web_video_server" type="web_video_server" output="screen" cwd="node"></node>
+	</group>
+</launch>

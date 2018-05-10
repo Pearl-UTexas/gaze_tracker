@@ -1,0 +1,6 @@
+*~
+*.bag
+data/*
+tmp/*
+*.pyc
+results/*

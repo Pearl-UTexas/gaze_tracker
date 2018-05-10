@@ -1,0 +1,11 @@
+std_msgs/Header header
+sensor_msgs/Image image
+std_msgs/Float32MultiArray[] faces
+rail_object_detector/Object[] objects
+---
+std_msgs/Header header
+std_msgs/Float32MultiArray coordinates
+std_msgs/Bool mutual
+std_msgs/Float32 mutual_value
+std_msgs/String nearest_object
+std_msgs/Int32 frame_count
