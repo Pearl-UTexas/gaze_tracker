@@ -6,6 +6,9 @@
 	<arg name="image_topic_name" default="/kinect/qhd/image_color_rect"/>
 	<arg name="launch_feed_recorder" default="true"/>
 	<arg name="data_directory" default="../tmp"/>
+	<arg name="classnames_filename" default="/media/psf/srinjoymajumdar/ROS_VM/code/gaze_tracking/villa/model.names" />
+        <arg name="cfg_filename" default="/media/psf/srinjoymajumdar/ROS_VM/gaze_tracking/villa/model.cfg" />
+        <arg name="weight_filename" default="/media/psf/srinjoymajumdar/ROS_VM/gaze_tracking/villa/model.weights" />
 
 	<param name="image_topic_name" value="$(arg image_topic_name)"/>
 	<param name="object_detector_data_dir" value="$(arg data_directory)"/>
@@ -23,8 +26,13 @@
 
 	<group if="$(arg use_yolo)">
 
-		<include file="$(find rail_object_detector)/launch/villa.launch">
+		<include file="$(find rail_object_detector)/launch/darknet.launch">
 			<arg name="publish_detections_topic" value="true"/>
+			<arg name="use_scene_service" value="false"/>
+			<arg name="use_image_service" value="true"/>
+			<arg name="classnames_filename" value="$(arg classnames_filename)"/>
+			<arg name="cfg_filename" value="$(arg cfg_filename)"/>
+			<arg name="weight_filename" value="$(arg weight_filename)"/>
 			<arg name="image_sub_topic_name" value="$(arg image_topic_name)"/>
 		</include>
 

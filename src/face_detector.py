@@ -10,26 +10,13 @@ import face_recognition
 
 
 class FaceDetector:
-  def __init__(self, model_name, basename='frontal-face', tgtdir='.', min_height_dec=20, min_width_dec=20, min_height_thresh=50, min_width_thresh=50):
+  def __init__(self):
     print "Starting Init for Face Detector"
 
-    self.face_detector_pub = rospy.Publisher("face_detections",FaceDetectionTopic)
-    rospy.sleep(2)
-    self.bridge = CvBridge()
-    self.rgb_image = None
-    self.depth_image = None
-
-    self.min_height_dec = min_height_dec
-    self.min_width_dec = min_width_dec
-    self.min_height_thresh = min_height_thresh
-    self.min_width_thresh = min_width_thresh
-    self.tgtdir = tgtdir
-    self.basename = basename
-    self.face_cascade = cv2.CascadeClassifier(model_name)
-
     image_topic = rospy.get_param("/image_topic_name")
-
-    detection_sub = rospy.Subscriber(image_topic,Image, self.callback, queue_size=1, buff_size=52428800)
+    self.bridge = CvBridge()
+    self.face_detector_pub = rospy.Publisher("face_detections",FaceDetectionTopic)
+    detection_sub = rospy.Subscriber(image_topic, Image, self.callback, queue_size=1, buff_size=52428800)
 
     rospy.sleep(5)
 
@@ -42,10 +29,7 @@ class FaceDetector:
     Args:
         rgb: image message
     """
-    self.rgb_image = rgb
-
     cv_image = self.bridge.imgmsg_to_cv2(rgb, "bgr8")
-
     faces = self.detect_faces(cv_image)
     msg = FaceDetectionTopic()
     msg.faces = faces
@@ -72,9 +56,9 @@ class FaceDetector:
     return multi_array
 
 def main():
-  """Instantiate FaceDetector class with model path
+  """Instantiate FaceDetector class
   """
-  obj = FaceDetector(model_name='/usr/share/opencv/haarcascades/haarcascade_frontalface_default.xml')
+  obj = FaceDetector()
 
 if __name__ == '__main__':
   rospy.init_node('face_detector', anonymous=True)
