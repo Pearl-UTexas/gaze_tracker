@@ -10,7 +10,7 @@ This package is a deep learning based human gaze tracker.
 3) Configure launch/gaze_predict.launch file with locations of configuration data for Darknet
 
 ### Face Recognition
-We use [this](https://github.com/ageitgey/face_recognition) dlib based face detector in this package.
+We use a [dlib based face detector](https://github.com/ageitgey/face_recognition) in this package.
 
 Install by running: ```pip install face_recognition```
 
