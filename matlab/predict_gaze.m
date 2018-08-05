@@ -1,8 +1,11 @@
-function [x_predict,y_predict,hm_results,ims] = predict_gaze(img,e)
+function [x_predict,y_predict,hm_results,net] = predict_gaze(img,e,net)
     % Written by Adria Recasens (recasens@mit.edu)
     
-    global net;
+    addpath(genpath('/data/vision/torralba/datasetbias/caffe-cudnn3/matlab/'));
     
+    definition_file = ['deploy_demo.prototxt'];
+    binary_file = ['binary_w.caffemodel'];
+
     s = RandStream('mt19937ar','Seed',sum(10000*clock));
     RandStream.setGlobalStream(s);
     
@@ -64,12 +67,13 @@ function [x_predict,y_predict,hm_results,ims] = predict_gaze(img,e)
     f(1,1,:) = z(:);
     filelist(:,3) = {f};
 
-    transform_data =[1 1 0];
-
-    %{
     use_gpu = 1;
     device_id = 2;
-    if(~exist('net','var')) 
+
+    transform_data =[1 1 0];
+
+    
+    if(~exist('net','var'))
         if use_gpu
          caffe.set_mode_gpu();
          gpu_id = 0;  % we will use the first gpu in this demo
@@ -78,11 +82,10 @@ function [x_predict,y_predict,hm_results,ims] = predict_gaze(img,e)
           caffe.set_mode_cpu();
         end
         net = caffe.Net(definition_file, binary_file, 'test');
-        disp('Network loaded');
     end
-    %}
-    
-    image_mean_cell = {'../model/places_mean_resize.mat','../model/imagenet_mean_resize.mat','../model/imagenet_mean_resize.mat'};
+
+    image_mean_cell = {'places_mean_resize.mat','imagenet_mean_resize.mat','imagenet_mean_resize.mat'};
+
     input_dim_all = [1 3 227 227 1 3 227 227 1 169 1 1];
 
     ims = cell(size(filelist,2),1);

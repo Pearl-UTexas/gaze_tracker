@@ -19,7 +19,9 @@ w = w/sum(w);
 avg_g = [0,0];
 win_len = size(output_list,1);
 if win_len<window_size+1
-    avg_g = sum(output_list)/win_len;
+    s = sum(output_list,1);
+    avg_g(1) = s(1)/win_len;
+    avg_g(2) = s(2)/win_len;
 else
     for i=1:window_size+1
         avg_g(1) = avg_g(1) + output_list(i,1)*w(i);

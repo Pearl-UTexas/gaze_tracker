@@ -4,3 +4,13 @@ data/*
 tmp/*
 *.pyc
 results/*
+
+
+matlab/*.jpg
+matlab/binary_w.caffemodel
+matlab/demo.m
+matlab/deploy_demo.prototxt
+matlab/places_mean_resize.mat
+matlab/predict_gaze.m
+matlab/imagenet_mean_resize.mat
+matlab/README.txt
