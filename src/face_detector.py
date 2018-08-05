@@ -5,7 +5,7 @@ import cv2
 from std_msgs.msg import Float32MultiArray
 from cv_bridge import CvBridge
 from sensor_msgs.msg import Image
-from object_detector.msg import FaceDetectionTopic
+from gaze_tracker.msg import FaceDetectionTopic
 import face_recognition
 
 

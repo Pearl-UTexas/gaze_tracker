@@ -8,8 +8,8 @@ from std_msgs.msg import String, Float32MultiArray, Bool, Float32
 from cv_bridge import CvBridge
 from sensor_msgs.msg import Image
 from rail_object_detector.msg import Detections
-from object_detector.srv import GazePredict
-from object_detector.msg import GazeTopic, FaceDetectionTopic
+from gaze_tracker.srv import GazePredict
+from gaze_tracker.msg import GazeTopic, FaceDetectionTopic
 
 class GazePredictWrapper:
     """

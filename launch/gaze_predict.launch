@@ -2,21 +2,21 @@
 
 <launch>
 	<arg name="use_yolo" default="true"/>
-	<arg name="image_topic_name" default="<YOUR_IMAGE_TOPIC_HERE>"/>
+	<arg name="image_topic_name" default="/kinect/qhd/image_color_rect"/>
 
 	<!-- YOLO Parameters -->
-	<arg name="classnames_filename" default="<YOUR_CLASSNAMES_FILENAME_HERE>" />
-	<arg name="cfg_filename" default="<YOUR_CFG_FILENAME_HERE>" />
-	<arg name="weight_filename" default="<YOUR_WEIGHT_FILENAME_HERE>" />
+	<arg name="classnames_filename" default="/home/akanksha/catkin_ws/src/rail_object_detector/data/learning.names" />
+	<arg name="cfg_filename" default="/home/akanksha/catkin_ws/src/rail_object_detector/data/learning.cfg" />
+	<arg name="weight_filename" default="/home/akanksha/catkin_ws/src/rail_object_detector/data/learning_17000.weights" />
 
 	<param name="image_topic_name" value="$(arg image_topic_name)"/>
-	<param name="object_detector_data_dir" value="$(arg data_directory)"/>
+	<!-- param name="object_detector_data_dir" value="$(arg data_directory)"/ -->
 
-	<node name="object_detector_bridge" pkg="object_detector" type="gaze_predict_wrapper.py" output="screen" cwd="node">
+	<node name="object_detector_bridge" pkg="gaze_tracker" type="gaze_predict_wrapper.py" output="screen" cwd="node">
 		<param name="use_yolo" value="$(arg use_yolo)"/>
 	</node>
 	
-	<node name="face_detector" pkg="object_detector" type="face_detector.py" output="screen" cwd="node"></node>
+	<node name="face_detector" pkg="gaze_tracker" type="face_detector.py" output="screen" cwd="node"></node>
 
 	<group if="$(arg use_yolo)">
 		<include file="$(find rail_object_detector)/launch/darknet.launch">
