@@ -25,8 +25,8 @@ if(strcmp(mutual_gaze_type,'entropy'))
     end
 end
      
-% Manhattan Distance based method
-if(strcmp(mutual_gaze_type,'manhattan'))
+% Distance based method
+if(strcmp(mutual_gaze_type,'distance'))
     normA = A - min(A(:));
     norm_gaze_mask = normA ./ max(normA(:)); % *
     mutual_metric = 0;
@@ -53,7 +53,7 @@ end
 
 % random-forest based method
 if(strcmp(mutual_gaze_type,'random-forest'))
-    load('../data/forest_hri.mat');
+    load('forest_hri.mat');
     row = gaze_mask_(:);
     [predicted_label,scores] = forestApply(row', forest);
     

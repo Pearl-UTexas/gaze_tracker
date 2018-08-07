@@ -1,13 +1,13 @@
  % Prediction of human's object of attention
  addpath(genpath('/home/pearl/caffe/matlab/'))
  addpath(genpath('/home/pearl/catkin_ws/src/gaze_tracker/matlab'))
+ addpath(genpath('/home/pearl/toolbox/'))
  
  global gaze_output;
  global face_output;
  global window_size;
  global mutual_gaze_type;
  global saliency_type;
- global gaze_prediction_type;
  global frame_count;
  global centroid;
  global dims;
@@ -23,12 +23,12 @@
  dims = [];
  objectLabel='';
  
- mutual_gaze_type ='variance'; % options: 'random-forest', 'variance', 'entropy', 'manhattan'
+ mutual_gaze_type ='random-forest'; % options: 'random-forest', 'variance', 'entropy', 'distance'
  saliency_type = 'weighted-avg'; % options: 'default', 'nearest-neighbor', 'weighted-avg' 
  
  global net;    
- definition_file = ['deploy_demo.prototxt'];
- binary_file = ['binary_w.caffemodel'];
+ definition_file = 'deploy_demo.prototxt';
+ binary_file = 'binary_w.caffemodel';
  use_gpu = 1;
 
  if use_gpu

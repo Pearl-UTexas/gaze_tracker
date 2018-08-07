@@ -6,7 +6,7 @@ This ROS package predicts the object of a human's attention using a single monoc
 ## Setup
 ### Rail Object Detector
 * Follow installation instructions for Darknet on [Rail Object Detector](https://github.com/GT-RAIL/rail_object_detector)
-* Replace the package.xml file with [this](https://drive.google.com/open?id=1EzGQQhaIALdVx0TIQlaRfDJksBwPw-eR) one.
+<!--* Replace the package.xml file with [this](https://drive.google.com/open?id=1EzGQQhaIALdVx0TIQlaRfDJksBwPw-eR) one. -->
 * Compile for CUDA support if you have a NVIDIA GPU for 10x speed improvement in object detection and gaze prediction. Recommended: CUDA 8.0, CUDNN 5.1
 * Configure launch/gaze_predict.launch file with locations of configuration data for Darknet
 
@@ -23,9 +23,9 @@ Install by running: ```pip install face_recognition```
 * Type ```rosgenmsg <path-to-workspace-src>```, follow the instructions and restart Matlab
 * Install the [toolbox](https://github.com/pdollar/toolbox) for random forests
 * Download the [model](http://gazefollow.csail.mit.edu/downloads/model.zip) trained by [Recasens et al.](http://people.csail.mit.edu/khosla/papers/nips2015_recasens.pdf), unzip it and place all files in the matlab folder.
+* Change the path to your caffe, ros workspace and toolbox folders in matlab/ros_demo.m
 
 ## Running the system
 * Edit gaze_predict.launch to have the correct image topic name for your system
 * Run gaze_predict.launch 
-* Run ros_demo.m on Matlab
-
+* Run ros_demo.m in Matlab
