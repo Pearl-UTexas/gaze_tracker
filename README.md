@@ -5,8 +5,7 @@
 This ROS package predicts the object of a human's attention using a single monocular camera. This package was tested on Ubuntu 16.04 and ROS Kinetic.
 ## Setup
 ### Rail Object Detector
-* Follow installation instructions for Darknet on [Rail Object Detector](https://github.com/GT-RAIL/rail_object_detector)
-<!--* Replace the package.xml file with [this](https://drive.google.com/open?id=1EzGQQhaIALdVx0TIQlaRfDJksBwPw-eR) one. -->
+* Follow installation instructions for Darknet on [Rail Object Detector](https://github.com/GT-RAIL/rail_object_detector)<!--* Replace the package.xml file with [this](https://drive.google.com/open?id=1EzGQQhaIALdVx0TIQlaRfDJksBwPw-eR) one. -->
 * Compile for CUDA support if you have a NVIDIA GPU for 10x speed improvement in object detection and gaze prediction. Recommended: CUDA 8.0, CUDNN 5.1
 * Configure launch/gaze_predict.launch file with locations of configuration data for Darknet
 
