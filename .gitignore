@@ -4,7 +4,8 @@ data/*
 tmp/*
 *.pyc
 results/*
-
+.vscode
+ui/node_modules/*
 
 matlab/*.jpg
 matlab/binary_w.caffemodel

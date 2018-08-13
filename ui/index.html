@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8" />
+	<head>
+		<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+		<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="./node_modules/jquery/jquery.min.js"></script>
+		<script src="./node_modules/popper.js/dist/popper.min.js"></script>
+
+		<script src="./node_modules/roslib/build/roslib.min.js"></script>
+		<script src="./index.js"></script>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-dark bg-dark">
+			<a class="navbar-brand" style="color:white">Gaze Predictor</a>
+			<div id="statusIndicator">
+				<p id="connection" style="margin-bottom: 0;">
+					Connecting to rosbridge...
+				</p>
+			</div>
+		</nav>
+		
+		<br>
+
+		<div class = "container">
+			<div class = "row justify-content-center">
+				<h5 style="color:red;" id="mutual">Mutual Gaze: False</h5>
+			</div>
+
+			<div class = "row justify-content-center">
+				<img style="position:absolute; z-index:-1;" id="viewer" />
+				<canvas id="canvas" style=" z-index:1; position: relative;" width="960" height="540"></canvas>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "gaze_js",
+  "version": "1.0.0",
+  "description": "Web interface for gaze prediction study",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^4.0.0-beta.2",
+    "express": "^4.16.2",
+    "jquery": "^1.9.1",
+    "popper.js": "^1.12.9",
+    "roslib": "^0.19.0"
+  },
+  "devDependencies": {
+    "install-peers": "^1.0.2"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC"
+}

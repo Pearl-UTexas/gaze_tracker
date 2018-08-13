@@ -3,6 +3,7 @@
 <launch>
 	<arg name="use_yolo" default="true"/>
 	<arg name="image_topic_name" default="/kinect/qhd/image_color_rect"/>
+	<arg name="gui" default="true"/>
 
 	<!-- YOLO Parameters -->
 	<arg name="classnames_filename" default="/home/akanksha/catkin_ws/src/rail_object_detector/data/learning.names" />
@@ -28,5 +29,10 @@
 			<arg name="weight_filename" value="$(arg weight_filename)"/>
 			<arg name="image_sub_topic_name" value="$(arg image_topic_name)"/>
 		</include>
+	</group>
+
+	<group if="$(arg gui)">
+		<include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch"/>
+		<node name="web_video_server" pkg="web_video_server" type="web_video_server" output="screen" cwd="node"></node>
 	</group>
 </launch>
