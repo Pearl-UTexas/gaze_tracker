@@ -21,6 +21,8 @@
   <build_depend>message_generation</build_depend>
   <build_depend>image_geometry</build_depend>
   <build_depend>image_transport</build_depend>
+  <build_depend>rosbridge_server</build_depend>
+  <build_depend>web_video_server</build_depend>
 
   <run_depend>cv_bridge</run_depend>
   <run_depend>geometry_msgs</run_depend>
@@ -32,6 +34,8 @@
   <run_depend>message_runtime</run_depend>
   <run_depend>image_geometry</run_depend>
   <run_depend>image_transport</run_depend>
+  <run_depend>rosbridge_server</run_depend>
+  <run_depend>web_video_server</run_depend>
 
   <export>
   </export>
