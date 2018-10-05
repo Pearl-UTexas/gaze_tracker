@@ -14,6 +14,13 @@ We use a [dlib based face detector](https://github.com/ageitgey/face_recognition
 
 Install by running: ```pip install face_recognition```
 
+### ROS Package Dependencies
+We depend on the `rosbridge-server` and `web-video-server` packages to display a simple web interface with the camera feed and gaze locations, you can install these by running:
+```
+sudo apt-get install ros-<rosdistro>-rosbridge-server
+sudo apt-get install ros-<rosdistro>-web-video-server
+```
+
 ### Matlab & Caffe
 * We recommend to install Matlab R2016b due to issues with OpenCV for other versions. Install the Computer Vision System Toolbox and Robotics System Toolbox.
 * Install Caffe with CUDA support for a 10x speedup. Recommended: CUDA 8.0, CUDNN 5.1 
