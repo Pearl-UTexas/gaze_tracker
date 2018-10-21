@@ -14,8 +14,14 @@ We use a [dlib based face detector](https://github.com/ageitgey/face_recognition
 
 Install by running: ```pip install face_recognition```
 
-### ROS Package Dependencies
-We depend on the `rosbridge-server` and `web-video-server` packages to display a simple web interface with the camera feed and gaze locations, you can install these by running:
+### UI Dependencies
+We provide a simple web interface to display the camera feed and gaze prediction locations. Run the following commands to setup the interface
+
+#### JS
+Run `npm install` in the [ui](./ui/) folder
+
+#### ROS
+Install the `rosbridge-server` and `web-video-server` packages
 ```
 sudo apt-get install ros-<rosdistro>-rosbridge-server
 sudo apt-get install ros-<rosdistro>-web-video-server
