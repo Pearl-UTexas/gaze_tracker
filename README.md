@@ -7,7 +7,7 @@ This ROS package predicts the object of a human's attention using a single monoc
 ### Rail Object Detector
 * Follow installation instructions for Darknet on [Rail Object Detector](https://github.com/GT-RAIL/rail_object_detector)<!--* Replace the package.xml file with [this](https://drive.google.com/open?id=1EzGQQhaIALdVx0TIQlaRfDJksBwPw-eR) one. -->
 * Compile for CUDA support if you have a NVIDIA GPU for 10x speed improvement in object detection and gaze prediction. Recommended: CUDA 8.0, CUDNN 5.1
-* Configure launch/gaze_predict.launch file with locations of configuration data for Darknet
+* Configure `launch/gaze_predict.launch` file with locations of configuration data for Darknet
 
 ### Face Recognition
 We use a [dlib based face detector](https://github.com/ageitgey/face_recognition) in this package.
