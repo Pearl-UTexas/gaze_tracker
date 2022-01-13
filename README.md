@@ -35,12 +35,12 @@ sudo apt-get install ros-<rosdistro>-web-video-server
 * Type ```rosgenmsg <path-to-workspace-src>```, follow the instructions and restart Matlab
 * Install the [toolbox](https://github.com/pdollar/toolbox) for random forests
 * Download the [model](http://gazefollow.csail.mit.edu/downloads/model.zip) trained by [Recasens et al.](http://people.csail.mit.edu/khosla/papers/nips2015_recasens.pdf), unzip it and place all files in the matlab folder.
-* Change the path to your caffe, ros workspace and toolbox folders in matlab/ros_demo.m
+* Change the path to your caffe, ros workspace and toolbox folders in `matlab/ros_demo.m`
 
 ## Running the system
-* Edit gaze_predict.launch to have the correct image topic name for your system
-* Run gaze_predict.launch 
-* Run ros_demo.m in Matlab
+* Edit `gaze_predict.launch` to have the correct image topic name for your system
+* Run `gaze_predict.launch`
+* Run `ros_demo.m` in Matlab
 
 
 ## Bibliography
