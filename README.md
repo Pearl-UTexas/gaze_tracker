@@ -41,3 +41,17 @@ sudo apt-get install ros-<rosdistro>-web-video-server
 * Edit gaze_predict.launch to have the correct image topic name for your system
 * Run gaze_predict.launch 
 * Run ros_demo.m in Matlab
+
+
+## Bibliography
+If you find our work to be useful in your research, please cite:
+```
+@inproceedings{saran2018human,
+  title={Human gaze following for human-robot interaction},
+  author={Saran, Akanksha and Majumdar, Srinjoy and Short, Elaine Schaertl and Thomaz, Andrea and Niekum, Scott},
+  booktitle={2018 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  pages={8615--8621},
+  year={2018},
+  organization={IEEE}
+}
+```
